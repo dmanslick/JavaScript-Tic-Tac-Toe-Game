@@ -1,0 +1,84 @@
+body {
+    background: #262626;
+    color: white;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+h1 a {
+    text-decoration: none;
+    color: white;
+}
+
+h1 a:hover {
+    color: #60a5fa;
+}
+
+#scores {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+}
+
+#scores > div {
+    width: 50%;
+    text-align: center;
+    font-size: 18pt;
+}
+
+#board {
+    width: 300px;
+    margin-inline: auto;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    font-size: 48pt;
+    user-select: none; 
+}
+
+.board-tile {
+    height: 100px;
+    width: 100px;
+    outline:1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #404040;
+}
+
+.board-tile:nth-child(1) {
+    border-top-left-radius: 10px;
+}
+
+.board-tile:nth-child(3) {
+    border-top-right-radius: 10px;
+}
+
+.board-tile:nth-child(7) {
+    border-bottom-left-radius: 10px;
+}
+
+.board-tile:nth-child(9) {
+    border-bottom-right-radius: 10px;
+}
+
+#result-div {
+    height: 100px;
+    width: 250px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+#result-div p {
+    text-align: center;
+    font-size: 18pt;
+}
