@@ -37,6 +37,18 @@ function computer(i) {
     }
 }
 
+function resetGame() {
+    tileOne.innerText = ''
+    tileTwo.innerText = ''
+    tileThree.innerText = ''
+    tileFour.innerText = ''
+    tileFive.innerText = ''
+    tileSix.innerText = ''
+    tileSeven.innerText = ''
+    tileEight.innerText = ''
+    tileNine.innerText = ''
+}
+
 function playerWins() {
     result.innerText = 'You Win!'
     resultDiv.style.backgroundColor = 'green'
@@ -63,25 +75,13 @@ function tie() {
 function winCheck(winComboTiles) {
     if (winComboTiles[0].innerText === 'X' && winComboTiles[1].innerText === 'X' && winComboTiles[2].innerText === 'X') {
         playerWins()
+        return 0
     } else if (winComboTiles[0].innerText === 'O' && winComboTiles[1].innerText === 'O' && winComboTiles[2].innerText === 'O') {
         computerWins()
-    } else if (winComboTiles[0].innerText != 'X' && winComboTiles[1].innerText != 'X' && winComboTiles[2].innerText != 'X' && winComboTiles[0].innerText != '' && winComboTiles[1].innerText != '' && winComboTiles[2].innerText != '') {
-        tie()
-    } else if (winComboTiles[0].innerText != 'O' && winComboTiles[1].innerText != 'O' && winComboTiles[2].innerText != 'O' && winComboTiles[0].innerText != '' && winComboTiles[1].innerText != '' && winComboTiles[2].innerText != '') {
-        tie()
+        return 1
+    } else {
+        return 2
     }
-}
-
-function resetGame() {
-    tileOne.innerText = ''
-    tileTwo.innerText = ''
-    tileThree.innerText = ''
-    tileFour.innerText = ''
-    tileFive.innerText = ''
-    tileSix.innerText = ''
-    tileSeven.innerText = ''
-    tileEight.innerText = ''
-    tileNine.innerText = ''
 }
 
 function winChecker() {
@@ -93,6 +93,9 @@ function winChecker() {
     winCheck(winComboSix)
     winCheck(winComboSeven)
     winCheck(winComboEight)
+    if (winCheck(winComboOne) == 2 && winCheck(winComboTwo) == 2 && winCheck(winComboThree) == 2 && winCheck(winComboFour) == 2 && winCheck(winComboFive) == 2 && winCheck(winComboSix) == 2 && winCheck(winComboSeven) == 2 && winCheck(winComboEight) == 2 && tileOne.innerText != '' && tileTwo.innerText != '' && tileThree.innerText != '' && tileFour.innerText != '' && tileFive.innerText != '' && tileSix.innerText != '' && tileSeven.innerText != '' && tileEight.innerText != '' && tileNine.innerText != '') {
+        tie()
+    }
 }
 
 for (let i = 0; i < tiles.length; i++) {
@@ -111,4 +114,4 @@ window.setInterval(()=> {
         winChecker()
     }
     winChecker()
-}, 50)
+}, 250)
